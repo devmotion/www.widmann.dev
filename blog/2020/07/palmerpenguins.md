@@ -5,13 +5,16 @@
 
 # Palmer penguins dataset
 
-Recently the [Palmer penguins dataset](https://allisonhorst.github.io/palmerpenguins/)
-was published as an
+Are you looking for a dataset for data exploration and visualization?
+Maybe you should consider the
+[Palmer penguins dataset](https://allisonhorst.github.io/palmerpenguins/),
+which was published as an
 [R package](https://cloud.r-project.org/web/packages/palmerpenguins/index.html)
-\citep{Horst2020}.
+recently \citep{Horst2020}.
 I created the Julia package
 [`PalmerPenguins.jl`](https://github.com/devmotion/PalmerPenguins.jl) to simplify
-its use with Julia and hence increase its adoption in the Julia community.
+its use with the Julia programming language and increase its adoption
+in the Julia community.
 
 ## Overview
 
@@ -75,14 +78,21 @@ three islands in the
 [Palmer Archipelago, Antarctica](https://en.wikipedia.org/wiki/Palmer_Archipelago),
 that were collected by
 [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php)
-and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/).
-The simplified version of the dataset contains at most seven measurements
-for each penguin, namely the species (`Adelie`, `Chinstrap`, and `Gentoo`),
-the island (`Torgersen`, `Biscoe`, and `Dream`),
-the bill length (measured in mm),
-the bill depth (measured in mm), the flipper length (measured in mm), the body
+and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/)
+\citep{Gorman2014}. The simplified version of the dataset contains at most
+seven measurements for each penguin, namely the species (`Adelie`, `Chinstrap`,
+and `Gentoo`), the island (`Torgersen`, `Biscoe`, and `Dream`),
+the bill length (measured in mm), the bill depth (measured in mm),
+the flipper length (measured in mm), the body
 mass (measured in g), and the sex (`male` and `female`). In total,
 19 measurements are missing.
+
+~~~
+<figure>
+    <img src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png" alt="Palmer penguins">
+    <figcaption>Palmer penguins. Artwork by <a href="https://twitter.com/allison_horst">@allison_horst</a>.</figcaption>
+</figure>
+~~~
 
 ## PalmerPenguins.jl
 
@@ -176,7 +186,7 @@ layout = Layout(;
 )
 p = PlotlyJS.plot([trace], layout)
 
-Utils.myfdplotly(p) # hide
+fdplotly(json(p); style="") # hide
 ```
 
 \textoutput{ex1}
@@ -206,7 +216,7 @@ layout = Layout(;
 )
 p = PlotlyJS.plot([trace], layout)
 
-Utils.myfdplotly(p) # hide
+fdplotly(json(p); style="") # hide
 ```
 
 \textoutput{ex2}
@@ -224,6 +234,9 @@ is that you don't have to download and load the dataset manually.
 
 ## References
 
-* \biblabel{Fisher1936}{Fisher, R. A. (1936)} Fisher, R. A. (1936). The use of multiple measurements in taxonomic prolems. *Annals of Eugenics*, *7*(2), 179--188. doi:[10.1111/j.1469-1809.1936.tb02137.x](https://doi.org/10.1111/j.1469-1809.1936.tb02137.x)
+* \biblabel{Fisher1936}{Fisher, R. A. (1936)}Fisher, R. A. (1936). The use of multiple measurements in taxonomic prolems. *Annals of Eugenics*, *7*(2), 179--188. doi:[10.1111/j.1469-1809.1936.tb02137.x](https://doi.org/10.1111/j.1469-1809.1936.tb02137.x)
 
-* \biblabel{Horst2020}{Horst, A. M., Hill, A. P., & Gorman, K. B. (2020)} Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). *palmerpenguins: Palmer Archipelago (Antarctica) penguin data*. R package version 0.1.0. doi:[10.5281/zenodo.3960218](https://doi.org/10.5281/zenodo.3960218)
+* \biblabel{Gorman2014}{Gorman, K. B., Williams, T. D., & Fraser, W. R. (2014)}Gorman, K. B., Williams, T. D., & Fraser, W. R. (2014). Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus *Pygoscelis*). *PLoS ONE*, 9(3):e90081. doi:[10.1371/journal.pone.0090081](https://doi.org/10.1371/journal.pone.0090081)
+
+* \biblabel{Horst2020}{Horst, A. M., Hill, A. P., & Gorman, K. B. (2020)}Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). *palmerpenguins: Palmer Archipelago (Antarctica) penguin data*. R package version 0.1.0. doi:[10.5281/zenodo.3960218](https://doi.org/10.5281/zenodo.3960218)
+

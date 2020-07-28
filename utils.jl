@@ -1,5 +1,4 @@
 using DataStructures
-using JSON
 
 using Dates
 
@@ -176,12 +175,4 @@ function hfun_recentblogposts(n=3)
     write(io, "</ul>\n")
 
     return String(take!(io))
-end
-
-function myfdplotly(
-    plt;
-    style = "width:80%;margin-left:auto;margin-right:auto;margin-bottom:1em;",
-    kwargs...
-)
-    return fdplotly(json(plt); style = style, kwargs...)
 end
