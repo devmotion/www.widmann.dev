@@ -1,9 +1,9 @@
-@def title = "Palmer penguins"
+@def title = "PalmerPenguins.jl"
 @def hascode = true
 @def hasplotly = true
 @def published = "2020-07-28"
 
-# Palmer penguins dataset
+# PalmerPenguins.jl
 
 Are you looking for a dataset for data exploration and visualization?
 Maybe you should consider the
@@ -14,9 +14,20 @@ recently \citep{Horst2020}.
 I created the Julia package
 [`PalmerPenguins.jl`](https://github.com/devmotion/PalmerPenguins.jl) to simplify
 its use with the Julia programming language and increase its adoption
-in the Julia community.
+within the Julia community.
 
-## Overview
+## TL;DR
+
+The Palmer penguins dataset is an alternative to the controversial
+`iris` dataset for data exploration and visualization (but, of course,
+[not the only one](https://www.meganstodel.com/posts/no-to-iris/)).
+The Julia package
+[`PalmerPenguins.jl`](https://github.com/devmotion/PalmerPenguins.jl)
+provides access to the raw and simplified versions of this dataset,
+similar to the original R package, without having to download and parse
+the raw data manually.
+
+## Palmer penguins dataset
 
 The Palmer penguins dataset was proposed as an alternative to the
 [`iris` dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) by \citet{Fisher1936}
@@ -94,7 +105,7 @@ mass (measured in g), and the sex (`male` and `female`). In total,
 </figure>
 ~~~
 
-## PalmerPenguins.jl
+## Julia package
 
 The Julia package `PalmerPenguins.jl` is available in the standard Julia
 package registry, so you can install it and load it in the usual way by running
@@ -221,22 +232,11 @@ fdplotly(json(p); style="") # hide
 
 \textoutput{ex2}
 
-## Summary
-
-It seems there is no good reason anymore to use the controversial
-`iris` dataset if you are looking for a dataset for data
-exploration or visualization. The Palmer penguins dataset is a good
-alternative but, of course, [not the only one](https://www.meganstodel.com/posts/no-to-iris/). I published a dedicated Julia package
-[`PalmerPenguins.jl`](https://github.com/devmotion/PalmerPenguins.jl)
-that provides access to the raw and simplified versions
-of this dataset, similar to the original R package. Its main advantage
-is that you don't have to download and load the dataset manually.
-
 ## References
 
-* \biblabel{Fisher1936}{Fisher, R. A. (1936)}Fisher, R. A. (1936). The use of multiple measurements in taxonomic prolems. *Annals of Eugenics*, *7*(2), 179--188. doi:[10.1111/j.1469-1809.1936.tb02137.x](https://doi.org/10.1111/j.1469-1809.1936.tb02137.x)
+* \biblabel{Fisher1936}{Fisher (1936)}Fisher, R. A. (1936). The use of multiple measurements in taxonomic prolems. *Annals of Eugenics*, *7*(2), 179--188. doi:[10.1111/j.1469-1809.1936.tb02137.x](https://doi.org/10.1111/j.1469-1809.1936.tb02137.x)
 
-* \biblabel{Gorman2014}{Gorman, K. B., Williams, T. D., & Fraser, W. R. (2014)}Gorman, K. B., Williams, T. D., & Fraser, W. R. (2014). Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus *Pygoscelis*). *PLoS ONE*, 9(3):e90081. doi:[10.1371/journal.pone.0090081](https://doi.org/10.1371/journal.pone.0090081)
+* \biblabel{Gorman2014}{Gorman, Williams, & Fraser (2014)}Gorman, K. B., Williams, T. D., & Fraser, W. R. (2014). Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus *Pygoscelis*). *PLoS ONE*, 9(3):e90081. doi:[10.1371/journal.pone.0090081](https://doi.org/10.1371/journal.pone.0090081)
 
-* \biblabel{Horst2020}{Horst, A. M., Hill, A. P., & Gorman, K. B. (2020)}Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). *palmerpenguins: Palmer Archipelago (Antarctica) penguin data*. R package version 0.1.0. doi:[10.5281/zenodo.3960218](https://doi.org/10.5281/zenodo.3960218)
+* \biblabel{Horst2020}{Horst, Hill, & Gorman (2020)}Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). *palmerpenguins: Palmer Archipelago (Antarctica) penguin data*. R package version 0.1.0. doi:[10.5281/zenodo.3960218](https://doi.org/10.5281/zenodo.3960218)
 
