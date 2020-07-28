@@ -63,7 +63,8 @@ inappropriate.
 > &mdash; [Garrick Aden-Buie](https://www.garrickadenbuie.com/blog/lets-move-on-from-iris)
 
 Apart from that, the `iris` dataset is quite boring: it contains no
-missing values and
+missing values and:
+
 > With the exception of one or two points, the classes are linearly
 > separable, and so classification algorithms reach almost perfect accuracy. \\
 > \\
@@ -100,8 +101,8 @@ As explained in the
 the simplified and the raw version of the Palmer penguins dataset
 can be loaded in a
 [Tables.jl-compatible format](https://github.com/JuliaData/Tables.jl).
-Hence, e.g., we can inspect the names and types of the features
-in the simplified and the raw version by running
+We can inspect the names and types of the features in the simplified
+and the raw version by running
 
 ```julia:schema
 using PalmerPenguins
@@ -215,7 +216,7 @@ Utils.myfdplotly(p) # hide
 It seems there is no good reason anymore to use the controversial
 `iris` dataset if you are looking for a dataset for data
 exploration or visualization. The Palmer penguins dataset is a good
-alternative but, of course, [not the only one](https://www.meganstodel.com/posts/no-to-iris/)). I published a dedicated Julia package
+alternative but, of course, [not the only one](https://www.meganstodel.com/posts/no-to-iris/). I published a dedicated Julia package
 [`PalmerPenguins.jl`](https://github.com/devmotion/PalmerPenguins.jl)
 that provides access to the raw and simplified versions
 of this dataset, similar to the original R package. Its main advantage
