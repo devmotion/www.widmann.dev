@@ -52,7 +52,7 @@ sub{
 img{
   border:0
 }
-p,h1,h2,h3,h4,h5,h6,ol,ul,pre,address,blockquote,dl,div,fieldset,form,hr,noscript,table{
+p,h1,h2,h3,h4,h5,h6,ol,ul,pre,address,blockquote,dl,div,fieldset,form,hr,noscript,table,figure {
   margin-top:0
 }
 h1,h2,h3,h4,h5,h6{
@@ -62,8 +62,15 @@ h1,h2,h3,h4,h5,h6{
   line-height:1.15;
   color:#27262b;
 }
-p{
+p,figure {
   margin-bottom:1em
+}
+figure {
+  text-align: center;
+}
+figure figcaption {
+  text-align: center;
+  font-style: italic;
 }
 a{
   color:#0E39B0;
@@ -507,14 +514,18 @@ td.fndef-backref {
 }
 
 .franklin-content img {
-    width: 70%;
+    width: 80%;
     text-align: center;
-    padding-left: 10%; }
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .franklin-content .img-small img {
     width: 50%;
     text-align: center;
-    padding-left: 20%; }
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* ==================================================================
     KATEX
@@ -551,3 +562,11 @@ body { counter-reset: eqnum; }
 .hljs-metas { color: red; }
 
 .hljs-metap { color: rgb(51, 131, 231); }
+
+/* Plotly */
+.js-plotly-plot {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+}

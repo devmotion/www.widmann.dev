@@ -12,3 +12,6 @@ This is my personal website, containing information about my research and the
 </p>
 ~~~
 
+## Recent blog posts
+
+{{recentblogposts}}
