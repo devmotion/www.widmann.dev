@@ -1,11 +1,13 @@
 name: Build and Deploy
+
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -15,10 +17,15 @@ jobs:
       with:
         persist-credentials: false
     - name: Install SSH Client
-      continue-on-error: true
-      uses: webfactory/ssh-agent@v0.2.0
+      if: github.event_name != 'pull_request' || github.repository == github.event.pull_request.head.repo.full_name # if NOT a PR or a PR that is NOT from a fork
+      uses: webfactory/ssh-agent@v0.4.1
       with:
         ssh-private-key: ${{ secrets.FRANKLIN_PRIV }}
+    - name: Fix URLs for PR preview deployment (pull request previews)
+      if: github.event_name == 'pull_request'
+      run: |
+        echo "PREVIEW_FRANKLIN_WEBSITE_URL=https://preview.widmann.dev/PR${{ github.event.number }}/" >> $GITHUB_ENV
+        echo "PREVIEW_FRANKLIN_PREPATH=PR${{ github.event.number }}" >> $GITHUB_ENV
     # NOTE: Python is necessary for pre-rendering steps.
     - name: Install python
       uses: actions/setup-python@v1
@@ -36,24 +43,27 @@ jobs:
     #
     #   The last line should be `optimize()` though you may want to give it
     #   specific arguments, see the documentation or ?optimize in the REPL.
-    - run: julia -e '
-            using Pkg; Pkg.add(["NodeJS", "Franklin"]);
-            using NodeJS; run(`$(npm_cmd()) install highlight.js`);
-            using Franklin;
-            Pkg.activate("."); Pkg.instantiate();
-            optimize()'
+    - run: |
+        using Pkg
+        Pkg.instantiate()
+        using NodeJS
+        run(`$(npm_cmd()) install highlight.js`)
+        using Franklin
+        optimize()
+      shell: julia --color=yes --project=. {0}
     - name: Deploy (preview)
       continue-on-error: true
       if: github.event_name == 'pull_request'
-      uses: JamesIves/github-pages-deploy-action@3.4.2
-      with:
-        SSH: true
-        BRANCH: gh-preview
-        FOLDER: __site
-    - name: Deploy (main)
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-        SSH: true
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-preview
+        FOLDER: __site
+        TARGET_FOLDER: "PR${{ github.event.number }}"
+    - name: Deploy (main)
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
         FOLDER: __site

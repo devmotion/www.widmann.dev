@@ -1,0 +1,16 @@
+name: PR Comment
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  pr_comment:
+    runs-on: ubuntu-latest
+    if: github.repository == github.event.pull_request.head.repo.full_name # if PR is NOT from a fork
+    steps:
+      - name: Create PR comment
+        uses: thollander/actions-comment-pull-request@71efef56b184328c7ef1f213577c3a90edaa4aff
+        with:
+          message: 'Once the build has completed, you can preview your PR at this URL: https://preview.widmann.dev/PR${{ github.event.number }}/'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
