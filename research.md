@@ -51,7 +51,7 @@ tumours.
   [full-text](https://openreview.net/forum?id=-bxf89v3Nx)
   [webpage](https://devmotion.github.io/Calibration_ICLR2021)
   [code](https://github.com/devmotion/Calibration_ICLR2021)
-  [slides](https://github.com/devmotion/Calibration_ICLR2021/blob/main/slides/main.pdf)
+  [slides](https://github.com/devmotion/Calibration_ICLR2021/raw/main/slides/main.pdf)
   [poster](https://github.com/devmotion/Calibration_ICLR2021/raw/main/poster/main.pdf)
 
 - Widmann, D., Lindsten, F., & Zachariah, D. (2019). **Calibration tests
