@@ -43,7 +43,8 @@ jobs:
     #
     #   The last line should be `optimize()` though you may want to give it
     #   specific arguments, see the documentation or ?optimize in the REPL.
-    - run: |
+    - name: Build site
+      run: |
         using Pkg
         Pkg.instantiate()
         using NodeJS
