@@ -58,7 +58,7 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-preview
+        BRANCH: preview
         FOLDER: __site
         TARGET_FOLDER: "PR${{ github.event.number }}"
     - name: Deploy (main)
@@ -66,5 +66,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
+        BRANCH: site
         FOLDER: __site
