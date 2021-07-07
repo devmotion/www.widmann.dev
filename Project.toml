@@ -1,0 +1,22 @@
+[deps]
+ColorBrewer = "a2cac450-b92f-5266-8821-25eda20663c8"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+Franklin = "713c75ef-9fc9-4b05-94a9-213340da978e"
+NodeJS = "2bd173c7-0d6d-553b-b6af-13a54713934c"
+PalmerPenguins = "8b842266-38fa-440a-9b57-31493939ab85"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
+PlotlyJS = "f0f68f2c-4968-5e81-91da-67840de0976a"
+Tables = "bd369af6-aec1-5ad0-b16a-f7cc5008161c"
+
+[compat]
+ColorBrewer = "0.4"
+DataFrames = "1"
+DataStructures = "0.18"
+Franklin = "0.10"
+NodeJS = "1"
+PalmerPenguins = "0.1"
+PlotlyJS = "0.16"
+Tables = "1"
+julia = "1"

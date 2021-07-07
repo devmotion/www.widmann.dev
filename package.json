@@ -1,0 +1,6 @@
+{
+  "name": "widmann.dev",
+  "dependencies": {
+    "highlight.js": "^10.7.3"
+  }
+}
