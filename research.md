@@ -36,10 +36,25 @@ tumours.
 
 ## Talks
 
+- July, 2021. **Calibration analysis of probabilistic models in Julia**.
+  [JuliaCon 2021](https://juliacon.org/2021/).
+  [source](https://github.com/devmotion/Talks/tree/main/2021/07/Calibration)
+  [slides/notebook](https://talks.widmann.dev/2021/07/calibration/)
+
+- July, 2021. **EllipticalSliceSampling.jl: MCMC with Gaussian priors**.
+  [JuliaCon 2021](https://juliacon.org/2021/).
+  [source](https://github.com/devmotion/Talks/tree/main/2021/07/EllipticalSliceSampling)
+  [slides/notebook](https://talks.widmann.dev/2021/07/ellipticalslicesampling/)
+
+- July 5, 2021. **Probabilistic Modelling with Turing.jl**.
+  [Julia User Group Munich](https://www.meetup.com/Julia-User-Group-Munich/).
+  [source](https://github.com/devmotion/Talks/tree/main/2021/07/Turing)
+  [slides/notebook](https://talks.widmann.dev/2021/07/turing/)
+
 - July 23, 2019. **Solving Delay Differential Equations with
   Julia**. [JuliaCon 2019](https://juliacon.org/2019/), Baltimore, MD,
   USA.
-  [repo](https://github.com/devmotion/JuliaCon2019)
+  [source](https://github.com/devmotion/JuliaCon2019)
   [video](https://www.youtube.com/watch?v=8srePpkofIU)
   [slides](https://github.com/devmotion/JuliaCon2019/raw/master/presentation.pdf)
 
