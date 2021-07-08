@@ -62,15 +62,17 @@ tumours.
 
 ### Conferences
 
-- Widmann, D., Lindsten, F., & Zachariah, D. (2021). **Calibration tests beyond classification**.
+- Widmann, D., Lindsten, F., & Zachariah, D. (2021). **Calibration tests beyond classification**. International Conference on Learning Representations (ICLR) 2021.
   [full-text](https://openreview.net/forum?id=-bxf89v3Nx)
   [webpage](https://devmotion.github.io/Calibration_ICLR2021)
   [code](https://github.com/devmotion/Calibration_ICLR2021)
+  [video](https://iclr.cc/virtual/2021/poster/2682)
   [slides](https://github.com/devmotion/Calibration_ICLR2021/raw/main/slides/main.pdf)
   [poster](https://github.com/devmotion/Calibration_ICLR2021/raw/main/poster/main.pdf)
 
 - Widmann, D., Lindsten, F., & Zachariah, D. (2019). **Calibration tests
   in multi-class classification: A unifying framework**.
+  Conference on Neural Information Processing Systems (NeurIPS) 2019.
   [full-text](http://papers.nips.cc/paper/9392-calibration-tests-in-multi-class-classification-a-unifying-framework)
   [arXiv](http://arxiv.org/abs/1910.11385)
   [code](https://github.com/devmotion/CalibrationPaper)
