@@ -36,30 +36,47 @@ tumours.
 
 ## Talks
 
-- July, 2021. **Calibration analysis of probabilistic models in Julia**.
+- Widmann, D. (2021). **Calibration analysis of probabilistic models in Julia**.
   [JuliaCon 2021](https://juliacon.org/2021/).
   [source](https://github.com/devmotion/Talks/tree/main/2021/07/Calibration)
   [slides/notebook](https://talks.widmann.dev/2021/07/calibration/)
 
-- July, 2021. **EllipticalSliceSampling.jl: MCMC with Gaussian priors**.
-  [JuliaCon 2021](https://juliacon.org/2021/).
-  [source](https://github.com/devmotion/Talks/tree/main/2021/07/EllipticalSliceSampling)
-  [slides/notebook](https://talks.widmann.dev/2021/07/ellipticalslicesampling/)
-
-- July 5, 2021. **Probabilistic Modelling with Turing.jl**.
+- Widmann, D. (2021). **Probabilistic Modelling with Turing.jl**.
   [Julia User Group Munich](https://www.meetup.com/Julia-User-Group-Munich/).
   [source](https://github.com/devmotion/Talks/tree/main/2021/07/Turing)
   [slides/notebook](https://talks.widmann.dev/2021/07/turing/)
 
-- July 23, 2019. **Solving Delay Differential Equations with
+- Widmann, D. (2019). **Solving Delay Differential Equations with
   Julia**. [JuliaCon 2019](https://juliacon.org/2019/), Baltimore, MD,
   USA.
   [source](https://github.com/devmotion/JuliaCon2019)
   [video](https://www.youtube.com/watch?v=8srePpkofIU)
   [slides](https://github.com/devmotion/JuliaCon2019/raw/master/presentation.pdf)
 
-- September 13, 2018. **Introduction to Machine Learning**. [Day of the Programmer 2018](https://dayoftheprogrammer.se/2018/), Jönköping, Sweden.
+- Widmann, D. (2018). **Introduction to Machine Learning**. [Day of the Programmer 2018](https://dayoftheprogrammer.se/2018/), Jönköping, Sweden.
   [abstract](https://dayoftheprogrammer.se/2018-talare/david-widmann/)
+
+## Posters
+
+- Widmann, D. (2021). **EllipticalSliceSampling.jl: MCMC with Gaussian priors**.
+  [JuliaCon 2021](https://juliacon.org/2021/).
+  [source](https://github.com/devmotion/Talks/tree/main/2021/07/EllipticalSliceSampling)
+  [slides/notebook](https://talks.widmann.dev/2021/07/ellipticalslicesampling/)
+
+- Widmann, D., Lindsten, F., & Zachariah, D. (2019). **Calibration measures in multi-class
+  classification**. [Swedish Symposium on Deep Learning (SSDL)](http://ssba.org.se/ssdl2019), Norrköping, Sweden.
+
+- Vaicenavicius, J., Widmann, D., Andersson, C., Lindsten, F., Schön, T. B. & Roll, J.
+  (2018). **Evaluation of model calibration in classification**. [Machine Learning Summer School (MLSS) 2018](http://mlss.ii.uam.es/mlss2018/index.html), Madrid, Spain.
+
+- Widmann, D., & Kuttler, C. (2018). **Quorum sensing of Pseudomonas putida in continuous
+  cultures**.
+  [11th European Conference on Mathematical and Theoretical Biology (ECMTB)](https://ecmtb2018.org), Lisbon, Portugal.
+
+- Vaicenavicius, J., Widmann, D., Andersson, C., Lindsten, F., Schön, T. B. & Roll, J.
+  (2018). **Calibrated predictive uncertainty in classification with neural networks**.
+  [Reglermöte 2018](https://www.kth.se/eecs/om-oss/konferenser-och-event/reglermotet/reglermote-2018-1.738055), Stockholm, Sweden.
+  [abstract](https://easychair.org/smart-program/RM18/2018-06-20.html#talk:73774)
 
 ## Publications
 
