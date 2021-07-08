@@ -69,7 +69,7 @@ tumours.
 - Vaicenavicius, J., Widmann, D., Andersson, C., Lindsten, F., Schön, T. B. & Roll, J.
   (2018). **Evaluation of model calibration in classification**. [Machine Learning Summer School (MLSS) 2018](http://mlss.ii.uam.es/mlss2018/index.html), Madrid, Spain.
 
-- Widmann, D., & Kuttler, C. (2018). **Quorum sensing of Pseudomonas putida in continuous
+- Widmann, D., & Kuttler, C. (2018). **Quorum sensing of *Pseudomonas putida* in continuous
   cultures**.
   [11th European Conference on Mathematical and Theoretical Biology (ECMTB)](https://ecmtb2018.org), Lisbon, Portugal.
 
