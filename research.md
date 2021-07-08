@@ -58,6 +58,9 @@ tumours.
   [video](https://www.youtube.com/watch?v=8srePpkofIU)
   [slides](https://github.com/devmotion/JuliaCon2019/raw/master/presentation.pdf)
 
+- September 13, 2018. **Introduction to Machine Learning**. [Day of the Programmer 2018](https://dayoftheprogrammer.se/2018/).
+  [abstract](https://dayoftheprogrammer.se/2018-talare/david-widmann/)
+
 ## Publications
 
 ### Conferences
