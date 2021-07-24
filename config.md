@@ -5,7 +5,7 @@ The website_* must be defined for the RSS to work
 -->
 @def website_title = "David Widmann"
 @def website_descr = "Personal website of David Widmann"
-@def website_url = get(ENV, "PREVIEW_FRANKLIN_WEBSITE_URL", "https://widmann.dev/")
+@def website_url = get(ENV, "PREVIEW_FRANKLIN_WEBSITE_URL", "https://www.widmann.dev/")
 
 @def prepath = get(ENV, "PREVIEW_FRANKLIN_PREPATH", "")
 
