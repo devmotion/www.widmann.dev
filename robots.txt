@@ -1,4 +1,4 @@
-Sitemap: https://widmann.dev/sitemap.xml
+Sitemap: https://www.widmann.dev/sitemap.xml
 
 User-agent: *
 Disallow:

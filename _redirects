@@ -1,0 +1,7 @@
+# redirect rules for domain aliases
+https://devmotion.de/* https://www.widmann.dev/:splat 301!
+https://www.devmotion.de/* https://www.widmann.dev/:splat 301!
+https://davidwidmann.de/* https://www.widmann.dev/:splat 301!
+https://www.davidwidmann.de/* https://www.widmann.dev/:splat 301!
+https://david-widmann.de/* https://www.widmann.dev/:splat 301!
+https://www.david-widmann.de/* https://www.widmann.dev/:splat 301!
