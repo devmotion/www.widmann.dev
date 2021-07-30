@@ -39,6 +39,8 @@ tumours.
 - Widmann, D. (2021). **Calibration analysis of probabilistic models in Julia**.
   [JuliaCon 2021](https://juliacon.org/2021/).
   [source](https://github.com/devmotion/Talks/tree/main/2021/07/Calibration)
+  [info](https://pretalx.com/juliacon2021/talk/8BWJXP/)
+  [video](https://www.youtube.com/watch?v=PrLsXFvwzuA)
   [slides/notebook](https://talks.widmann.dev/2021/07/calibration/)
 
 - Widmann, D. (2021). **Probabilistic Modelling with Turing.jl**.
@@ -61,6 +63,8 @@ tumours.
 - Widmann, D. (2021). **EllipticalSliceSampling.jl: MCMC with Gaussian priors**.
   [JuliaCon 2021](https://juliacon.org/2021/).
   [source](https://github.com/devmotion/Talks/tree/main/2021/07/EllipticalSliceSampling)
+  [info](https://pretalx.com/juliacon2021/talk/review/LDSE33F9WVR8F8EQUXAPVNDLCDSG8ZRC)
+  [video](https://juliacon2020-uploads.s3.us-east-2.amazonaws.com/public/%20EllipticalSliceSampling.jl%3A%20MCMC%20with%20Gaussian%20priors%3A%20EllipticalSliceSampling_BetterQuality.mp4)
   [slides/notebook](https://talks.widmann.dev/2021/07/ellipticalslicesampling/)
 
 - Widmann, D., Lindsten, F., & Zachariah, D. (2019). **Calibration measures in multi-class
