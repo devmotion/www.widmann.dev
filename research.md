@@ -36,6 +36,11 @@ tumours.
 
 ## Talks
 
+- Widmann, D. (2022). Scientific Computing with Julia.
+  [Polygon Math Club at the American University in Bulgaria](https://www.facebook.com/MathPolygonAUBG).
+  [source](https://github.com/devmotion/Talks/tree/main/2022/02/Julia)
+  [slides/notebook](https://talks.widmann.dev/2022/02/julia/)
+
 - Widmann, D. (2021). **Calibration analysis of probabilistic models in Julia**.
   [JuliaCon 2021](https://juliacon.org/2021/).
   [source](https://github.com/devmotion/Talks/tree/main/2021/07/Calibration)
