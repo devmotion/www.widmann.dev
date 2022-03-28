@@ -36,7 +36,7 @@ tumours.
 
 ## Talks
 
-- Widmann, D. (2022). Scientific Computing with Julia.
+- Widmann, D. (2022). **Scientific Computing with Julia**.
   [Polygon Math Club at the American University in Bulgaria](https://www.facebook.com/MathPolygonAUBG).
   [source](https://github.com/devmotion/Talks/tree/main/2022/02/Julia)
   [slides/notebook](https://talks.widmann.dev/2022/02/julia/)
