@@ -36,6 +36,11 @@ tumours.
 
 ## Talks
 
+- Widmann, D. (2022). **Calibration of probabilistic predictive models**.
+  [Machine Learning Journal Club of the Gatsby Unit at UCL](https://www.ucl.ac.uk/gatsby/).
+  [source](https://github.com/devmotion/Talks/tree/main/2022/03/Calibration)
+  [slides](https://talks.widmann.dev/2022/03/calibration.pdf)
+
 - Widmann, D. (2022). **Scientific Computing with Julia**.
   [Polygon Math Club at the American University in Bulgaria](https://www.facebook.com/MathPolygonAUBG).
   [source](https://github.com/devmotion/Talks/tree/main/2022/02/Julia)
