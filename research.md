@@ -44,19 +44,19 @@ tumours.
 - Widmann, D. (2022). **Scientific Computing with Julia**.
   [Polygon Math Club at the American University in Bulgaria](https://www.facebook.com/MathPolygonAUBG).
   [source](https://github.com/devmotion/Talks/tree/main/2022/02/Julia)
-  [slides/notebook](https://talks.widmann.dev/2022/02/julia/)
+  [slides/notebook](https://talks.widmann.dev/2022/02/Julia/)
 
 - Widmann, D. (2021). **Calibration analysis of probabilistic models in Julia**.
   [JuliaCon 2021](https://juliacon.org/2021/).
   [source](https://github.com/devmotion/Talks/tree/main/2021/07/Calibration)
   [info](https://pretalx.com/juliacon2021/talk/8BWJXP/)
   [video](https://www.youtube.com/watch?v=PrLsXFvwzuA)
-  [slides/notebook](https://talks.widmann.dev/2021/07/calibration/)
+  [slides/notebook](https://talks.widmann.dev/2021/07/Calibration/)
 
 - Widmann, D. (2021). **Probabilistic Modelling with Turing.jl**.
   [Julia User Group Munich](https://www.meetup.com/Julia-User-Group-Munich/).
   [source](https://github.com/devmotion/Talks/tree/main/2021/07/Turing)
-  [slides/notebook](https://talks.widmann.dev/2021/07/turing/)
+  [slides/notebook](https://talks.widmann.dev/2021/07/Turing/)
 
 - Widmann, D. (2019). **Solving Delay Differential Equations with
   Julia**. [JuliaCon 2019](https://juliacon.org/2019/), Baltimore, MD,
@@ -75,7 +75,7 @@ tumours.
   [source](https://github.com/devmotion/Talks/tree/main/2021/07/EllipticalSliceSampling)
   [info](https://pretalx.com/juliacon2021/talk/review/LDSE33F9WVR8F8EQUXAPVNDLCDSG8ZRC)
   [video](https://juliacon2020-uploads.s3.us-east-2.amazonaws.com/public/%20EllipticalSliceSampling.jl%3A%20MCMC%20with%20Gaussian%20priors%3A%20EllipticalSliceSampling_BetterQuality.mp4)
-  [slides/notebook](https://talks.widmann.dev/2021/07/ellipticalslicesampling/)
+  [slides/notebook](https://talks.widmann.dev/2021/07/EllipticalSliceSampling/)
 
 - Widmann, D., Lindsten, F., & Zachariah, D. (2019). **Calibration measures in multi-class
   classification**. [Swedish Symposium on Deep Learning (SSDL)](http://ssba.org.se/ssdl2019), Norrköping, Sweden.
