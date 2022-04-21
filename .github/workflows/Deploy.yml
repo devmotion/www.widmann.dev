@@ -24,7 +24,7 @@ jobs:
     - name: Fix URLs for PR preview deployment (pull request previews)
       if: github.event_name == 'pull_request'
       run: |
-        echo "PREVIEW_FRANKLIN_WEBSITE_URL=https://preview.widmann.dev/PR${{ github.event.number }}/" >> $GITHUB_ENV
+        echo "PREVIEW_FRANKLIN_WEBSITE_URL=https://preview.www-widmann-dev.pages.dev/PR${{ github.event.number }}/" >> $GITHUB_ENV
         echo "PREVIEW_FRANKLIN_PREPATH=PR${{ github.event.number }}" >> $GITHUB_ENV
     # NOTE: Python is necessary for pre-rendering steps.
     - name: Install python
