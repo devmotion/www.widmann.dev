@@ -1,0 +1,4 @@
+# redirect rules for domain aliases
+https://preview.devmotion.de/* https://preview.widmann.dev/:splat 301!
+https://preview.davidwidmann.de/* https://preview.widmann.dev/:splat 301!
+https://preview.david-widmann.de/* https://preview.widmann.dev/:splat 301!
