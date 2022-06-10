@@ -1,90 +1,35 @@
-using DataStructures
+using Franklin: Franklin
 
-using Dates
+using Dates: Dates
+using Printf: Printf
 
-function hfun_bar(vname)
-  val = Meta.parse(vname[1])
-  return round(sqrt(val), digits=2)
-end
-
-function hfun_m1fill(vname)
-  var = vname[1]
-  return pagevar("index", var)
-end
-
-function lx_baz(com, _)
-  # keep this first line
-  brace_content = Franklin.content(com.braces[1]) # input string
-  # do whatever you want here
-  return uppercase(brace_content)
-end
-
-function getpubdate(
-    url;
-    year = Dates.year(Dates.today()),
-    month = Dates.month(Dates.today())
-)
-    pubdate = pagevar(url, :published)
+function getpubdate(url; year=Dates.year(Dates.today()), month=Dates.month(Dates.today()))
+    pubdate = Franklin.pagevar(url, :published)
     if pubdate === nothing
         return Dates.Date(year, month, 1)
     else
-        return Dates.Date(pubdate, dateformat"yyyy-mm-dd")
+        return Dates.Date(pubdate, Dates.dateformat"yyyy-mm-dd")
     end
 end
 
 """
-    {{blogposts}}
+    {{blogposts(n_string=["-1"])}}
 
-Plug in the list of blog posts contained in the `/blog/` folder.
+List of blog posts contained in the `/posts/` folder.
+
+If `n >= 0` where `n = parse(Int, only(n_string))`, then only the `n` most recent posts are shown.
+Otherwise all posts are listed.
 """
-function hfun_blogposts()
-    curdate = Dates.today()
-
-    urls = String[]
-    dates = Date[]
-
-    for yeardir in filter!(x -> match(r"^\d{4}$", x) !== nothing, readdir("blog"))
-        # filter directories
-        yearpath = joinpath("blog", yeardir)
-        isdir(yearpath) || continue
-
-        # check year
-        year = parse(Int, yeardir)
-        curdate >= Dates.Date(year, 1, 1) || continue
-
-        for monthdir in filter!(x -> match(r"^\d{2}$", x) !== nothing, readdir(yearpath))
-            # filter directories
-            monthpath = joinpath(yearpath, monthdir)
-            isdir(monthpath) || continue
-
-            # check month
-            month = parse(Int, monthdir)
-            curdate >= Dates.Date(year, month, 1) || continue
-
-            for post in filter!(p -> endswith(p, ".md"), readdir(monthpath))
-                ps = splitext(post)[1]
-                url = "blog/$yeardir/$monthdir/$ps"
-
-                # check date
-                pubdate = getpubdate(url; year = year, month = month)
-                curdate >= pubdate || continue
-
-                # add post
-                push!(urls, url)
-                push!(dates, pubdate)
-            end
-        end
-    end
+function hfun_blogposts(n_string::Vector{String}=["-1"])
+    n = parse(Int, only(n_string))
+    recent = blogposts(n)
 
     io = IOBuffer()
     write(io, "<ul class=\"blogs\">\n")
-    indices = sortperm(dates; rev=true)
-    for i in indices
-        url = urls[i]
-        date = dates[i]
-
-        # obtain title
-        title = pagevar(url, :title)
+    for (post, date) in recent
+        # obtain title and url
+        title = Franklin.pagevar(post, :title)
+        url = basename(post) == "index.md" ? dirname(post) : post
         write(
             io,
             """
@@ -92,7 +37,7 @@ function hfun_blogposts()
                 <a href="/$url/" class="title">$title</a>
                 $(day(date)) $(monthname(date)) $(year(date))
             </li>
-            """
+            """,
         )
     end
     write(io, "</ul>")
@@ -100,79 +45,51 @@ function hfun_blogposts()
     return String(take!(io))
 end
 
-"""
-    {{recentblogposts(n)}}
+function blogposts(n::Int=-1)
+    curyear = Dates.year(Dates.today())
+    nposts = 0
+    recent = Vector{Pair{String,Date}}(undef, 0)
+    n > 0 && sizehint!(recent, n)
 
-Input the `n` most recent blog posts.
-"""
-function hfun_recentblogposts(n=3)
-    blogs = PriorityQueue{String,Date}()
+    for year in curyear:-1:2019, month in 12:-1:1
+        nposts == n && break
 
-    curdate = Dates.today()
+        base = joinpath("blog", string(year), Printf.@sprintf("%02d", month))
+        isdir(base) || continue
 
-    for yeardir in filter!(x -> match(r"^\d{4}$", x) !== nothing, readdir("blog"))
-        # filter directories
-        yearpath = joinpath("blog", yeardir)
-        isdir(yearpath) || continue
+        m = nposts
+        for post in readdir(base; join=true)
+            if isdir(post) && isfile(joinpath(post, "index.md"))
+                post = joinpath(post, "index.md")
+            end
+            endswith(post, ".md") || continue
+            pubdate = getpubdate(post)
 
-        # check year
-        year = parse(Int, yeardir)
-        curdate >= Dates.Date(year, 1, 1) || continue
-
-        for monthdir in filter!(x -> match(r"^\d{2}$", x) !== nothing, readdir(yearpath))
-            # filter directories
-            monthpath = joinpath(yearpath, monthdir)
-            isdir(monthpath) || continue
-
-            # check month
-            month = parse(Int, monthdir)
-            curdate >= Dates.Date(year, month, 1) || continue
-
-            for post in filter!(p -> endswith(p, ".md"), readdir(monthpath))
-                ps = splitext(post)[1]
-                url = "blog/$yeardir/$monthdir/$ps"
-
-                # check date
-                pubdate = getpubdate(url; year = year, month = month)
-                curdate >= pubdate || continue
-
-                # add to queue
-                if length(blogs) < n
-                    enqueue!(blogs, url => pubdate)
-                elseif peek(blogs) < pubdate
-                    dequeue!(blogs)
-                    enqueue!(blogs, url => pubdate)
+            if nposts != n
+                push!(recent, (post => pubdate))
+                for i in nposts:-1:(m + 1)
+                    pubdate <= recent[i][2] && break
+                    recent[i], recent[i + 1] = recent[i + 1], recent[i]
                 end
+                nposts += 1
+            elseif nposts > m && pubdate > recent[end][2]
+                recent[end] = (post => pubdate)
             end
         end
     end
 
-    # reverse priority queue
-    m = length(blogs)
-    urls = Vector{String}(undef, m)
-    dates = Vector{Date}(undef, m)
-    while !isempty(blogs)
-        url, date = dequeue_pair!(blogs)
-        urls[m] = url
-        dates[m] = date
-        m -= 1
-    end
+    return recent
+end
 
-    io = IOBuffer()
-    write(io, "<ul class=\"blogs\">\n")
-    for (url, date) in zip(urls, dates)
-        title = pagevar(url, :title)
-        write(
-            io,
-            """
-            <li>
-                <a href="/$url/" class="title">$title</a>
-                $(day(date)) $(monthname(date)) $(year(date))
-            </li>
-            """
-        )
-    end
-    write(io, "</ul>\n")
+hfun_get_url() = Franklin.get_url(Franklin.locvar("fd_rpath"))
 
-    return String(take!(io))
+function hfun_markdown2html(args)
+    arg = only(args)
+    if arg == "website_description" || arg == "title" || arg == "markdown_title"
+        str = Franklin.locvar(arg)
+        @assert str !== nothing
+        return Franklin.md2html(str; stripp=true)
+    else
+        error("unknown argument arg = $arg")
+    end
 end

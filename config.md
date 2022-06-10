@@ -1,32 +1,20 @@
-<!--
-Add here global page variables to use throughout your
-website.
-The website_* must be defined for the RSS to work
--->
-@def website_title = "David Widmann"
-@def website_descr = "Personal website of David Widmann"
-@def website_url = get(ENV, "PREVIEW_FRANKLIN_WEBSITE_URL", "https://www.widmann.dev/")
+<!-- RSS settings -->
 
++++
+website_title = "David Widmann"
+website_description = "My personal website. I am a PhD student at Uppsala University and write about research and programming."
+website_url = get(ENV, "PREVIEW_FRANKLIN_WEBSITE_URL", "https://www.widmann.dev")
+generate_rss = true
++++
+
+<!-- Theme specific options -->
++++
+author = "David Widmann"
+hasplotly = false
++++
+
+<!-- Support for Github previews -->
 @def prepath = get(ENV, "PREVIEW_FRANKLIN_PREPATH", "")
 
-@def author = "David Widmann"
-
-@def mintoclevel = 2
-
-@def hasplotly = false
-
-<!--
-Add here files or directories that should be ignored by Franklin, otherwise
-these files might be copied and, if markdown, processed by Franklin which
-you might not want. Indicate directories by ending the name with a `/`.
--->
-@def ignore = ["node_modules/", "franklin", "franklin.pub"]
-
-<!--
-Add here global latex commands to use throughout your
-pages. It can be math commands but does not need to be.
-For instance:
-* \newcommand{\phrase}{This is a long phrase to copy.}
--->
-\newcommand{\R}{\mathbb R}
-\newcommand{\scal}[1]{\langle #1 \rangle}
+<!-- Files and directories ignored by Franklin -->
+@def ignore = [".JuliaFormatter.toml", "Makefile", "Manifest.toml", ".github/", "tools/"]

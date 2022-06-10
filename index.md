@@ -14,4 +14,4 @@ This is my personal website, containing information about my research and the
 
 ## Recent blog posts
 
-{{recentblogposts}}
+{{blogposts 3}}

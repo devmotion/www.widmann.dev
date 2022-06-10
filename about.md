@@ -3,6 +3,7 @@
 # About me
 
 @@container
+
 ~~~
 <img class="left" src="/assets/profile_small.jpg" style="width: 20%;" />
 ~~~
@@ -22,6 +23,7 @@ Currently I am a member of the [steering council of SciML](https://sciml.ai/gove
 ~~~
 <div style="clear: both"></div>
 ~~~
+
 @@
 
 ## Contact Information

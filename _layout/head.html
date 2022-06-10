@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {{if hasplotly}} <script src="/libs/plotly/plotly.min.js"></script> {{end}}
-  {{if hasmath}} <link rel="stylesheet" href="/libs/katex/katex.min.css"> {{end}}
-  {{if hascode}} <link rel="stylesheet" href="/libs/highlight/github.min.css"> {{end}}
+
+  <link rel="canonical" href="{{ fill website_url }}{{ get_url }}"/>
+
+  <meta name="author" content="{{ fill author }}">
+  <meta name="description" content="{{ markdown2html website_description }}">
+
+  {{ if hasplotly }} {{ insert head_plotly.html }} {{ end }}
+  {{ if hasmath }} {{ insert head_katex.html }} {{ end }}
+  {{ if hascode }} {{ insert head_highlight.html }} {{ end }}
   <link rel="stylesheet" href="/css/jtd.css">
   <link rel="icon" href="/assets/favicon.ico">
-  {{isdef title}} <title>{{fill title}}</title>  {{end}}
+
+{{ isnotpage /index.html }}<title>{{ markdown2html title }} | {{ fill website_title }}</title>{{ end }}
+{{ ispage /index.html }}<title>{{ fill website_title }}</title>{{ end }}
 </head>
 <body>                      <!-- closed in foot.html -->
 <div class="page-wrap">   <!-- closed in foot.html -->
