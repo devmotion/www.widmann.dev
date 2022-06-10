@@ -38,7 +38,7 @@ jobs:
     # The last line should be `optimize()` though you may want to give it
     # specific arguments, see the documentation or ?optimize in the REPL.
     - name: Build site
-      run: julia --color=yes --project=tools/ -e "using Franklin; optimize(; prerender=false, minify=false)"
+      run: make optimize
       env:
         DATADEPS_ALWAYS_ACCEPT: true # Bypass the accept download prompt
     - name: Deploy (preview)
