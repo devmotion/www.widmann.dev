@@ -1,0 +1,4 @@
+Sitemap: https://preview.www-widmann-dev.pages.dev/PR17/sitemap.xml
+
+User-agent: *
+Disallow:
