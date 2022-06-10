@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="canonical" href="https://preview.www-widmann-dev.pages.dev/PR17//blog/2020/07/palmerpenguins/"/>
+
+  <meta name="author" content="David Widmann">
+  <meta name="description" content="My personal website. I am a PhD student at Uppsala University and write about research and programming.">
+
+   <script src="/PR17/libs/plotly/plotly.min.js"></script>
+<script>
+  const PlotlyJS_json = async (div, url) => {
+    response = await fetch(url)
+    fig = await response.json()
+    if (typeof fig.config === 'undefined') { fig["config"]={} }
+    delete fig.layout.width
+    delete fig.layout.height
+    fig["layout"]["autosize"] = true
+    fig["config"]["autosizable"] = true
+    fig["config"]["responsive"] = true
+    fig.config["scrollZoom"] = false
+    delete fig.config.staticPlot
+    delete fig.config.displayModeBar
+    delete fig.config.doubleClick
+    delete fig.config.showTips
+    Plotly.newPlot(div, fig);
+  }
+</script>
+ 
+  
+   <link rel="stylesheet" href="/PR17/libs/highlight/styles/atom-one-dark-reasonable.min.css">
+<link rel="stylesheet" href="/PR17/css/highlight.css">
+<link rel="stylesheet" href="/PR17/css/clipboard.css">
+ 
+  <link rel="stylesheet" href="/PR17/css/jtd.css">
+  <link rel="icon" href="/PR17/assets/favicon.ico">
+
+<title>PalmerPenguins.jl | David Widmann</title>
+
+</head>
+<body>                      <!-- closed in foot.html -->
+<div class="page-wrap">   <!-- closed in foot.html -->
+  <!-- SIDE BAR -->
+  <div class="side-bar">
+    <div class="header">
+      <a href="/PR17/" class="title">
+        <img src="/PR17/assets/title.svg" alt="David Widmann" />
+        <style>
+          @media (max-width: 31.25rem){
+              .side-bar .show-menu {height:30px;}
+          }
+          @media (max-width: 50rem) {
+              .side-bar .header .title {padding-top:0; padding-bottom: 0;}
+              .header .title img {height: 55px; max-width: 100px !important;}
+          }
+          @media (min-width: 66.5rem){
+              .header .title img {max-width: 130px !important;}
+          }
+        </style>
+      </a>
+    </div>
+    <label for="show-menu" class="show-menu">MENU</label>
+    <input type="checkbox" id="show-menu" role="button">
+    <div class="menu" id="side-menu">
+      <ul class="menu-list">
+        <li class="menu-list-item "><a href="/PR17/" class="menu-list-link ">Home</a>
+        <li class="menu-list-item active"><a href="/PR17/blog/" class="menu-list-link active">Blog</a>
+        <li class="menu-list-item "><a href="/PR17/research/" class="menu-list-link ">Research</a>
+        <li class="menu-list-item "><a href="/PR17/about/" class="menu-list-link ">About</a>
+      </ul>
+    </div>
+    <div class="footer">
+      <a href="https://github.com/devmotion" title="GitHub profile">
+        <img class="icon" src="/PR17/assets/icons/github.svg" alt="GitHub"></a>
+
+      <a href="https://gitlab.com/devmotion" title="GitLab profile">
+        <img class="icon" src="/PR17/assets/icons/gitlab.svg" alt="GitLab"></a>
+
+      <a href="mailto:david.widmann__at__it.uu.se" title="email address">
+        <img class="icon" src="/PR17/assets/icons/email.svg" alt="email"></a>
+
+      <a href="https://www.linkedin.com/in/david-widmann" title="LinkedIn profile">
+        <img class="icon" src="/PR17/assets/icons/linkedin.svg" alt="LinkedIn"></a>
+    </div>
+  </div>
+  <!-- CONTENT -->
+  <div class="main-content-wrap"> <!-- closed in foot.html -->
+    <div class="main-content">    <!-- closed in foot.html -->
+      <div class="main-header">
+        <a name="pagetop"></a>
+
+        <a id="github" href="https://github.com/devmotion/widmann.dev/blob/master/blog/2020/07/palmerpenguins/index.md">Page source</a>
+      </div>
+
+<!-- Content appended here (in class franklin-content) -->
+<div class="franklin-content">
+<h1 id="palmerpenguinsjl"><a href="#palmerpenguinsjl" class="header-anchor">PalmerPenguins.jl</a></h1>
+<p>Are you looking for a dataset for data exploration and visualization? Maybe you should consider the <a href="https://allisonhorst.github.io/palmerpenguins/">Palmer penguins dataset</a>, which was published as an <a href="https://cloud.r-project.org/web/packages/palmerpenguins/index.html">R package</a> recently <span class="bibref">(<a href="#horst2020">Horst, Hill, & Gorman (2020)</a>)</span>. I created the Julia package <a href="https://github.com/devmotion/PalmerPenguins.jl"><code>PalmerPenguins.jl</code></a> to simplify its use with the Julia programming language and increase its adoption within the Julia community.</p>
+<h2 id="tldr"><a href="#tldr" class="header-anchor">TL;DR</a></h2>
+<p>The Palmer penguins dataset is an alternative to the controversial <code>iris</code> dataset for data exploration and visualization &#40;but, of course, <a href="https://www.meganstodel.com/posts/no-to-iris/">not the only one</a>&#41;. The Julia package <a href="https://github.com/devmotion/PalmerPenguins.jl"><code>PalmerPenguins.jl</code></a> provides access to the raw and simplified versions of this dataset, similar to the original R package, without having to download and parse the raw data manually.</p>
+<h2 id="palmer_penguins_dataset"><a href="#palmer_penguins_dataset" class="header-anchor">Palmer penguins dataset</a></h2>
+<p>The Palmer penguins dataset was proposed as an alternative to the <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set"><code>iris</code> dataset</a> by <span class="bibref"><a href="#fisher1936">Fisher (1936)</a></span> for data exploration and visualization.</p>
+
+<blockquote class="twitter-tweet">
+  <p lang="en" dir="ltr">
+  🐧🐧🐧
+  <br><br>
+  This penguin data is a great alternative to iris &amp; available for use by CC0 🤩 Thank you Dr. Kristen Gorman w/ <a href="https://twitter.com/UAFcfos?ref_src=twsrc%5Etfw">@UAFcfos</a>, Marty Downs w/ <a href="https://twitter.com/USLTER?ref_src=twsrc%5Etfw">@USLTER</a>, &amp; <a href="https://twitter.com/PalmerLTER?ref_src=twsrc%5Etfw">@PalmerLTER</a> for help, info &amp; making it available for use 🎉
+  <br><br>
+  Data, examples, &amp; use info here: <a href="https://t.co/dSIqWNFlVw">https://t.co/dSIqWNFlVw</a> 🧵 1/6 <a href="https://t.co/2Eu4AxoeZl">pic.twitter.com/2Eu4AxoeZl</a>
+  </p>
+  <br><br>
+  &mdash; Allison Horst (@allison_horst) <a href="https://twitter.com/allison_horst/status/1270046399418138625?ref_src=twsrc%5Etfw">June 8, 2020</a>
+</blockquote>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Fisher was a vocal proponent of eugenics and published the <code>iris</code> dataset in the <em>Annals of Eugenics</em> in 1936 &#40;&#33;&#41;. Hence there is growing sentiment in the scientific community that the use of the <code>iris</code> dataset is inappropriate.</p>
+<blockquote>
+<p>One does not publish in the Annals of Eugenics in 1936 on a misunderstanding. <br/> <br/> By using this dataset in 2020, we are sending a very strong message. <br/> <br/> — <a href="https://armchairecology.blog/iris-dataset">Timothée Poisot</a></p>
+</blockquote>
+<blockquote>
+<p>Many people using iris will be unaware that it was first published in work by R A Fisher, a eugenicist with vile and harmful views on race. In fact, the iris dataset was originally published in the Annals of Eugenics. It is clear to me that knowingly using work that was itself used in pursuit of racist ideals is totally unacceptable. <br/> <br/> — <a href="https://www.meganstodel.com/posts/no-to-iris">Megan Stodel</a></p>
+</blockquote>
+<blockquote>
+<p>I’ve long known about Ronald Fisher’s eugenicist past, but I admit that I have often thoughtlessly turned to iris when needing a small, boring data set to demonstrate a coding or data principle. <br/> <br/> But Daniella and Timothée Poisot are right: it’s time to retire iris. <br/> <br/> — <a href="https://www.garrickadenbuie.com/blog/lets-move-on-from-iris">Garrick Aden-Buie</a></p>
+</blockquote>
+<p>Apart from that, the <code>iris</code> dataset is quite boring: it contains no missing values and:</p>
+<blockquote>
+<p>With the exception of one or two points, the classes are linearly separable, and so classification algorithms reach almost perfect accuracy. <br/> <br/> — <a href="https://armchairecology.blog/iris-dataset">Timothée Poisot</a></p>
+</blockquote>
+<p>The Palmer penguins dataset consists of measurements of 344 penguins from three islands in the <a href="https://en.wikipedia.org/wiki/Palmer_Archipelago">Palmer Archipelago, Antarctica</a>, that were collected by <a href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php">Dr. Kristen Gorman</a> and the <a href="https://pal.lternet.edu/">Palmer Station, Antarctica LTER</a> <span class="bibref">(<a href="#gorman2014">Gorman, Williams, & Fraser (2014)</a>)</span>. The simplified version of the dataset contains at most seven measurements for each penguin, namely the species &#40;<code>Adelie</code>, <code>Chinstrap</code>, and <code>Gentoo</code>&#41;, the island &#40;<code>Torgersen</code>, <code>Biscoe</code>, and <code>Dream</code>&#41;, the bill length &#40;measured in mm&#41;, the bill depth &#40;measured in mm&#41;, the flipper length &#40;measured in mm&#41;, the body mass &#40;measured in g&#41;, and the sex &#40;<code>male</code> and <code>female</code>&#41;. In total, 19 measurements are missing.</p>
+
+<figure>
+    <img src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png" alt="Palmer penguins">
+    <figcaption>Palmer penguins. Artwork by <a href="https://twitter.com/allison_horst">@allison_horst</a>.</figcaption>
+</figure>
+
+<h2 id="julia_package"><a href="#julia_package" class="header-anchor">Julia package</a></h2>
+<p>The Julia package <code>PalmerPenguins.jl</code> is available in the standard Julia package registry, so you can install it and load it in the usual way by running</p>
+<pre><code class="language-julia-repl">julia&gt; using Pkg
+
+julia&gt; Pkg.add&#40;&quot;PalmerPenguins&quot;&#41;
+
+julia&gt; using PalmerPenguins</code></pre>
+<p>in the Julia REPL. The package uses <a href="https://github.com/oxinabox/DataDeps.jl"><code>DataDeps.jl</code></a> to download a fixed &#40;and hence reproducible&#41; version of the dataset once instead of including a copy of the original dataset.</p>
+<p>As explained in the <a href="https://github.com/devmotion/PalmerPenguins.jl/blob/master/README.md">package&#39;s README</a>, the simplified and the raw version of the Palmer penguins dataset can be loaded in a <a href="https://github.com/JuliaData/Tables.jl">Tables.jl-compatible format</a>. We can inspect the names and types of the features in the simplified and the raw version by running</p>
+<pre><code class="language-julia">using PalmerPenguins
+using Tables
+
+Tables.schema&#40;PalmerPenguins.load&#40;&#41;&#41;</code></pre>
+<pre><code class="plaintext code-output">Tables.Schema:
+ :species            InlineStrings.String15
+ :island             InlineStrings.String15
+ :bill_length_mm     Union{Missing, Float64}
+ :bill_depth_mm      Union{Missing, Float64}
+ :flipper_length_mm  Union{Missing, Int64}
+ :body_mass_g        Union{Missing, Int64}
+ :sex                Union{Missing, InlineStrings.String7}</code></pre>
+<p>and</p>
+<pre><code class="language-julia">using PalmerPenguins
+using Tables
+
+Tables.schema&#40;PalmerPenguins.load&#40;; raw&#61;true&#41;&#41;</code></pre>
+<pre><code class="plaintext code-output">Tables.Schema:
+ :studyName                     InlineStrings.String7
+ Symbol("Sample Number")        Int64
+ :Species                       String
+ :Region                        InlineStrings.String7
+ :Island                        InlineStrings.String15
+ :Stage                         InlineStrings.String31
+ Symbol("Individual ID")        InlineStrings.String7
+ Symbol("Clutch Completion")    Bool
+ Symbol("Date Egg")             Dates.Date
+ Symbol("Culmen Length (mm)")   Union{Missing, Float64}
+ Symbol("Culmen Depth (mm)")    Union{Missing, Float64}
+ Symbol("Flipper Length (mm)")  Union{Missing, Int64}
+ Symbol("Body Mass (g)")        Union{Missing, Int64}
+ :Sex                           Union{Missing, InlineStrings.String7}
+ Symbol("Delta 15 N (o/oo)")    Union{Missing, Float64}
+ Symbol("Delta 13 C (o/oo)")    Union{Missing, Float64}
+ :Comments                      Union{Missing, String}</code></pre>
+<p>We also see that the names of the features in the simplified dataset are normalized to lowercase characters without whitespace and brackets.</p>
+<p>You might want to convert the tables to a <code>DataFrame</code> object for downstream analyses. The following code extracts the first five rows of the simplified dataset:</p>
+<pre><code class="language-julia">using DataFrames
+using PalmerPenguins
+
+first&#40;DataFrame&#40;PalmerPenguins.load&#40;&#41;&#41;, 5&#41;</code></pre>
+<pre><code class="plaintext code-output">5×7 DataFrame
+ Row │ species   island     bill_length_mm  bill_depth_mm  flipper_length_mm  body_mass_g  sex
+     │ String15  String15   Float64?        Float64?       Int64?             Int64?       String7
+─────┼─────────────────────────────────────────────────────────────────────────────────────────────
+   1 │ Adelie    Torgersen            39.1           18.7                181         3750  male
+   2 │ Adelie    Torgersen            39.5           17.4                186         3800  female
+   3 │ Adelie    Torgersen            40.3           18.0                195         3250  female
+   4 │ Adelie    Torgersen       missing        missing              missing      missing  missing
+   5 │ Adelie    Torgersen            36.7           19.3                193         3450  female</code></pre>
+<p>Data can be extracted with the Tables.jl-interface as well without creating a <code>DataFrame</code> object, as shown in the following visualizations of the Palmer penguins dataset. The following plots replicate the <a href="https://allisonhorst.github.io/palmerpenguins/#examples">official examples</a> &#40;even interactively&#33;&#41;.</p>
+<pre><code class="language-julia">using PalmerPenguins
+using PlotlyJS
+using Tables
+
+trace &#61; let data &#61; PalmerPenguins.load&#40;&#41;
+    scatter&#40;;
+        mode&#61;&quot;markers&quot;,
+        x&#61;Tables.getcolumn&#40;data, :flipper_length_mm&#41;,
+        y&#61;Tables.getcolumn&#40;data, :body_mass_g&#41;,
+        transforms&#61;&#91;
+            attr&#40;;
+                type&#61;&quot;groupby&quot;,
+                groups&#61;Tables.getcolumn&#40;data, :species&#41;,
+            &#41;,
+        &#93;,
+    &#41;
+end
+
+layout &#61; Layout&#40;;
+    title&#61;attr&#40;; text&#61;&quot;Flipper length and body mass&quot;, x&#61;0.5, xanchor&#61;&quot;center&quot;&#41;,
+    xaxis&#61;attr&#40;; title&#61;&quot;Flipper length &#40;mm&#41;&quot;&#41;,
+    yaxis&#61;attr&#40;; title&#61;&quot;Body mass &#40;g&#41;&quot;&#41;,
+    template&#61;templates&#91;&quot;simple_white&quot;&#93;,
+&#41;
+
+plt &#61; PlotlyJS.plot&#40;&#91;trace&#93;, layout&#41;</code></pre>
+<div id="fdpyku" style=""></div>
+<script>
+graphDiv = document.getElementById("fdpyku");
+plotlyPromise = PlotlyJS_json(graphDiv, '/assets/blog/2020/07/palmerpenguins/code/output/penguins-scatter.json');
+</script>
+
+<pre><code class="language-julia">using PalmerPenguins
+using PlotlyJS
+using Tables
+
+trace &#61; let data &#61; PalmerPenguins.load&#40;&#41;
+    histogram&#40;;
+        x&#61;Tables.getcolumn&#40;data, :flipper_length_mm&#41;,
+        opacity&#61;0.75,
+        transforms&#61;&#91;
+            attr&#40;;
+                type&#61;&quot;groupby&quot;,
+                groups&#61;Tables.getcolumn&#40;data, :species&#41;,
+            &#41;,
+        &#93;,
+    &#41;
+end
+
+layout &#61; Layout&#40;;
+    title&#61;attr&#40;; text&#61;&quot;Flipper length&quot;, x&#61;0.5, xanchor&#61;&quot;center&quot;&#41;,
+    xaxis&#61;attr&#40;; title&#61;&quot;Flipper length &#40;mm&#41;&quot;&#41;,
+    yaxis&#61;attr&#40;; title&#61;&quot;Frequency&quot;&#41;,
+    barmode&#61;&quot;overlay&quot;,
+    template&#61;templates&#91;&quot;simple_white&quot;&#93;,
+&#41;
+
+plt &#61; PlotlyJS.plot&#40;&#91;trace&#93;, layout&#41;</code></pre>
+<div id="fdpngt" style=""></div>
+<script>
+graphDiv = document.getElementById("fdpngt");
+plotlyPromise = PlotlyJS_json(graphDiv, '/assets/blog/2020/07/palmerpenguins/code/output/penguins-hist.json');
+</script>
+
+<h2 id="references"><a href="#references" class="header-anchor">References</a></h2>
+<ul>
+<li><p><a id="fisher1936" class="anchor"></a>Fisher, R. A. &#40;1936&#41;. The use of multiple measurements in taxonomic prolems. <em>Annals of Eugenics</em>, <em>7</em>&#40;2&#41;, 179–188. doi:<a href="https://doi.org/10.1111/j.1469-1809.1936.tb02137.x">10.1111/j.1469-1809.1936.tb02137.x</a></p>
+</li>
+<li><p><a id="gorman2014" class="anchor"></a>Gorman, K. B., Williams, T. D., &amp; Fraser, W. R. &#40;2014&#41;. Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins &#40;genus <em>Pygoscelis</em>&#41;. <em>PLoS ONE</em>, 9&#40;3&#41;:e90081. doi:<a href="https://doi.org/10.1371/journal.pone.0090081">10.1371/journal.pone.0090081</a></p>
+</li>
+<li><p><a id="horst2020" class="anchor"></a>Horst, A. M., Hill, A. P., &amp; Gorman, K. B. &#40;2020&#41;. <em>palmerpenguins: Palmer Archipelago &#40;Antarctica&#41; penguin data</em>. R package version 0.1.0. doi:<a href="https://doi.org/10.5281/zenodo.3960218">10.5281/zenodo.3960218</a></p>
+</li>
+</ul>
+<div class="main-footer">
+  <div class="copyright">
+    &copy; David Widmann. Last modified: June 10, 2022. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+    </div> <!-- end of class main-content -->
+    </div> <!-- end of class main-content-wrap -->
+    </div> <!-- end of class page-wrap-->
+    
+    
+      <script src="/PR17/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+<script src="/PR17/libs/clipboard/clipboard.min.js"></script>
+<script>
+// Add a copy-button to all pre elements with highlighted code inside
+// Copied from https://github.com/fredrikekre/fredrikekre.se/blob/e0e4e6fd95182aa3691da167e0ea536734993ab6/_libs/clipboard.js
+(function(){
+    var COPY_ICON = '<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 111.07 122.88"  fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g><path d="M97.67,20.81L97.67,20.81l0.01,0.02c3.7,0.01,7.04,1.51,9.46,3.93c2.4,2.41,3.9,5.74,3.9,9.42h0.02v0.02v75.28 v0.01h-0.02c-0.01,3.68-1.51,7.03-3.93,9.46c-2.41,2.4-5.74,3.9-9.42,3.9v0.02h-0.02H38.48h-0.01v-0.02 c-3.69-0.01-7.04-1.5-9.46-3.93c-2.4-2.41-3.9-5.74-3.91-9.42H25.1c0-25.96,0-49.34,0-75.3v-0.01h0.02 c0.01-3.69,1.52-7.04,3.94-9.46c2.41-2.4,5.73-3.9,9.42-3.91v-0.02h0.02C58.22,20.81,77.95,20.81,97.67,20.81L97.67,20.81z M0.02,75.38L0,13.39v-0.01h0.02c0.01-3.69,1.52-7.04,3.93-9.46c2.41-2.4,5.74-3.9,9.42-3.91V0h0.02h59.19 c7.69,0,8.9,9.96,0.01,10.16H13.4h-0.02v-0.02c-0.88,0-1.68,0.37-2.27,0.97c-0.59,0.58-0.96,1.4-0.96,2.27h0.02v0.01v3.17 c0,19.61,0,39.21,0,58.81C10.17,83.63,0.02,84.09,0.02,75.38L0.02,75.38z M100.91,109.49V34.2v-0.02h0.02 c0-0.87-0.37-1.68-0.97-2.27c-0.59-0.58-1.4-0.96-2.28-0.96v0.02h-0.01H38.48h-0.02v-0.02c-0.88,0-1.68,0.38-2.27,0.97 c-0.59,0.58-0.96,1.4-0.96,2.27h0.02v0.01v75.28v0.02h-0.02c0,0.88,0.38,1.68,0.97,2.27c0.59,0.59,1.4,0.96,2.27,0.96v-0.02h0.01 h59.19h0.02v0.02c0.87,0,1.68-0.38,2.27-0.97c0.59-0.58,0.96-1.4,0.96-2.27L100.91,109.49L100.91,109.49L100.91,109.49 L100.91,109.49z"/></g></svg>'
+    // Get the elements.
+    var pre = document.getElementsByTagName('pre');
+    for (var i = 0; i < pre.length; i++) {
+        // Check whether this is a highlightjs code block
+        var isCode = /language-|hljs/.test(pre[i].children[0].className)
+        if ( isCode ) {
+            var button = document.createElement('button');
+            button.className = 'copy-button';
+            button.title = 'Copy to clipboard';
+            button.setAttribute('aria-label', 'Copy to clipboard');
+            var div = document.createElement('div');
+            div.innerHTML = COPY_ICON;
+            button.appendChild(div.firstChild)
+            pre[i].appendChild(button);
+        }
+    };
+
+    var clipboard = new ClipboardJS('.copy-button', {
+        target: function(trigger) {
+            return trigger.previousElementSibling;
+        }
+    });
+
+    clipboard.on('success', function(event) {
+        event.clearSelection();
+    })
+
+    clipboard.on('error', function(event) {
+        event.clearSelection();
+    })
+})();
+</script>
+
+    
+  </body>
+</html>

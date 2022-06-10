@@ -19,4 +19,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
+<url>
+    <loc>https://preview.www-widmann-dev.pages.dev/PR17/blog/index.html</loc>
+    <lastmod>2022-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://preview.www-widmann-dev.pages.dev/PR17/blog/2020/07/palmerpenguins/index.html</loc>
+    <lastmod>2022-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
 </urlset>
