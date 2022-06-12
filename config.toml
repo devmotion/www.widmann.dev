@@ -1,0 +1,73 @@
+baseURL = 'https://www.widmann.dev/'
+title = 'David Widmann'
+languagecode = "en"
+defaultcontentlanguage = "en"
+
+paginate = 20
+
+[module]
+  [[module.imports]]
+    path = "github.com/luizdepra/hugo-coder"
+
+[params]
+  author = "David Widmann"
+  description = "My personal website"
+  keywords = "blog,personal,research,programming,julia"
+  avatarurl = "assets/profile_small.jpg"
+
+  since = 2020
+  commit = "https://github.com/devmotion/www.widmann.dev/tree/"
+
+  enableTwemoji = true
+
+  colorScheme = "auto"
+  hidecolorschemetoggle = false
+
+[permalinks]
+  posts = '/posts/:year/:month/:filename/'
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+  author = "authors"
+
+# Social links
+[[params.social]]
+  name = "Github"
+  icon = "fa fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/devmotion/"
+[[params.social]]
+  name = "Gitlab"
+  icon = "fa fa-gitlab fa-2x"
+  weight = 2
+  url = "https://gitlab.com/devmotion/"
+[[params.social]]
+  name = "Twitter"
+  icon = "fa fa-twitter fa-2x"
+  weight = 3
+  url = "https://twitter.com/devmotion/"
+[[params.social]]
+  name = "LinkedIn"
+  icon = "fa fa-linkedin fa-2x"
+  weight = 3
+  url = "https://www.linkedin.com/in/david-widmann/"
+
+# Menu links
+[[menu.main]]
+  name = "Blog"
+  weight = 1
+  url  = "posts/"
+[[menu.main]]
+  name = "Research"
+  weight = 2
+  url = "research/"
+[[menu.main]]
+  name = "About"
+  weight = 3
+  url = "about/"
+
+# Required for ox-hugo: Allow to include html in markdown
+[markup.goldmark.renderer]
+   unsafe = true
