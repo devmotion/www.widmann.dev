@@ -1,5 +1,11 @@
-__site/
 .DS_Store
-franklin
-franklin.pub
-node_modules/
+
+# Generated files by hugo
+/public/
+/resources/_gen/
+
+# Temporary lock file while building
+/.hugo_build.lock
+
+# References
+.auctex-auto/
