@@ -1,5 +1,5 @@
-baseURL = 'https://www.widmann.dev/'
-title = 'David Widmann'
+baseURL = "/"
+title = "David Widmann"
 languagecode = "en"
 defaultcontentlanguage = "en"
 
