@@ -56,17 +56,17 @@ paginate = 20
 
 # Menu links
 [[menu.main]]
-  name = "Blog"
+  name = "About"
   weight = 1
-  url  = "posts/"
+  url = "about/"
 [[menu.main]]
   name = "Research"
   weight = 2
   url = "research/"
 [[menu.main]]
-  name = "About"
+  name = "Blog"
   weight = 3
-  url = "about/"
+  url = "posts/"
 
 # Required for ox-hugo: Allow to include html in markdown
 [markup.goldmark.renderer]
