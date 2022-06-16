@@ -44,6 +44,8 @@ During my medical studies at LMU Munich I was part of a research group at the [[
 
 ** Talks
 
+- Widmann, D. (2022). *μ-seminar: π*. [[https://www.it.uu.se/research/systems_and_control][Thursday Tea Time, Division of Systems and Control, Uppsala University]]. [[https://www.wolframcloud.com/obj/david.widmann/Published/pi_seminar.nb][slides]]
+
 - Widmann, D. (2022). *Calibration of probabilistic predictive models*. [[https://www.ucl.ac.uk/gatsby/][Machine Learning Journal Club of the Gatsby Unit at UCL]]. [[https://github.com/devmotion/Talks/tree/main/2022/03/Calibration][source]] [[https://talks.widmann.dev/2022/03/calibration.pdf][slides]]
 
 - Widmann, D. (2022). *Scientific Computing with Julia*. [[https://www.facebook.com/MathPolygonAUBG][Polygon Math Club at the American University in Bulgaria]]. [[https://github.com/devmotion/Talks/tree/main/2022/02/Julia][source]] [[https://talks.widmann.dev/2022/02/Julia/][slides/notebook]]

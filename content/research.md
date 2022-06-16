@@ -1,7 +1,7 @@
 +++
 title = "Research"
 author = ["David Widmann"]
-lastmod = 2022-06-10T23:03:28+02:00
+lastmod = 2022-06-16T16:35:00+02:00
 draft = false
 +++
 
@@ -37,6 +37,8 @@ During my medical studies at LMU Munich I was part of a research group at the [C
 
 
 ## Talks {#talks}
+
+-   Widmann, D. (2022). **μ-seminar: π**. [Thursday Tea Time, Division of Systems and Control, Uppsala University](https://www.it.uu.se/research/systems_and_control). [slides](https://www.wolframcloud.com/obj/david.widmann/Published/pi_seminar.nb)
 
 -   Widmann, D. (2022). **Calibration of probabilistic predictive models**. [Machine Learning Journal Club of the Gatsby Unit at UCL](https://www.ucl.ac.uk/gatsby/). [source](https://github.com/devmotion/Talks/tree/main/2022/03/Calibration) [slides](https://talks.widmann.dev/2022/03/calibration.pdf)
 
