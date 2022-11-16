@@ -13,6 +13,7 @@ draft = false
 - [Talks](#talks)
 - [Posters](#posters)
 - [Publications](#publications)
+    - [Preprints](#preprints)
     - [Conferences](#conferences)
     - [Journals](#journals)
 
@@ -70,12 +71,16 @@ During my medical studies at LMU Munich I was part of a research group at the [C
 
 ## Publications {#publications}
 
+### Preprints {#preprints}
+
+- Widmann, D., &amp; Rackauckas, C. (2022). **DelayDiffEq: Generating Delay Differential Equation Solvers via Recursive Embedding of Ordinary Differential Equation Solvers**. [arXiv](https://arxiv.org/abs/2208.12879) [code](https://github.com/SciML/DelayDiffEq.jl/tree/paper)
+
 
 ### Conferences {#conferences}
 
--   Widmann, D., Lindsten, F., &amp; Zachariah, D. (2021). **Calibration tests beyond classification**. International Conference on Learning Representations (ICLR) 2021. [full-text](https://openreview.net/forum?id=-bxf89v3Nx) [webpage](https://devmotion.github.io/Calibration_ICLR2021) [code](https://github.com/devmotion/Calibration_ICLR2021) [video](https://iclr.cc/virtual/2021/poster/2682) [slides](https://github.com/devmotion/Calibration_ICLR2021/raw/main/slides/main.pdf) [poster](https://github.com/devmotion/Calibration_ICLR2021/raw/main/poster/main.pdf)
+-   Widmann, D., Lindsten, F., &amp; Zachariah, D. (2021). **Calibration tests beyond classification**. International Conference on Learning Representations (ICLR) 2021. [full-text (accepted)](https://openreview.net/forum?id=-bxf89v3Nx) [arXiv (corrected)](https://arxiv.org/abs/2210.13355) [webpage](https://devmotion.github.io/Calibration_ICLR2021) [code](https://github.com/devmotion/Calibration_ICLR2021) [video](https://iclr.cc/virtual/2021/poster/2682) [slides](https://github.com/devmotion/Calibration_ICLR2021/raw/main/slides/main.pdf) [poster](https://github.com/devmotion/Calibration_ICLR2021/raw/main/poster/main.pdf)
 
--   Widmann, D., Lindsten, F., &amp; Zachariah, D. (2019). **Calibration tests in multi-class classification: A unifying framework**. Conference on Neural Information Processing Systems (NeurIPS) 2019. [arXiv](http://arxiv.org/abs/1910.11385) [code](https://github.com/devmotion/CalibrationPaper) [code](https://vimeo.com/369295144) [slides](https://github.com/devmotion/CalibrationPaper/raw/master/slides/spotlight.pdf) [poster](https://github.com/devmotion/CalibrationPaper/raw/master/poster/neurips.pdf)
+-   Widmann, D., Lindsten, F., &amp; Zachariah, D. (2019). **Calibration tests in multi-class classification: A unifying framework**. Conference on Neural Information Processing Systems (NeurIPS) 2019. [full-text (accepted)](https://proceedings.neurips.cc/paper/2019/hash/1c336b8080f82bcc2cd2499b4c57261d-Abstract.html) [arXiv (corrected)](http://arxiv.org/abs/1910.11385) [code](https://github.com/devmotion/CalibrationPaper) [code](https://vimeo.com/369295144) [slides](https://github.com/devmotion/CalibrationPaper/raw/master/slides/spotlight.pdf) [poster](https://github.com/devmotion/CalibrationPaper/raw/master/poster/neurips.pdf)
 
 -   Vaicenavicius, J., Widmann, D., Andersson, C., Lindsten, F., Roll, J. &amp; Schön, T. B. (2019). **Evaluating model calibration in classification**. Proceedings of Machine Learning Research, in PMLR 89:3459-3467. [full-text](http://proceedings.mlr.press/v89/vaicenavicius19a.html) [arXiv](https://arxiv.org/abs/1902.06977) [code](https://github.com/uu-sml/calibration)
 
